@@ -4,8 +4,9 @@
 "Обробка списків з використанням базових функцій"<br/>
 дисципліни "Вступ до функціонального програмування"
 </p>
-<p align="right"><b>Студент(-ка)</b>: Ідолова А.П. група КВ-33</p>
+<p align="right"><b>Студентка</b>: Ідолова А.П. група КВ-33</p>
 <p align="right"><b>Рік</b>: 2026</p>
+
 ## Загальне завдання
 
 1. Створіть список з п'яти елементів, використовуючи функції LIST і CONS. Форма
@@ -109,8 +110,10 @@ CL-USER> ‌‌(append my_list (nth 4 my_list))
 <p align="center">
 <img src="lab_1_variant.png">
 </p>
+
 ```lisp
-‌‌CL-USER> (let ((list_a (list 'a)))
+
+CL-USER> (let ((list_a (list 'a)))
    (list (cons 1 list_a)
        (cons 2 list_a)
        (cons 3 list_a)
