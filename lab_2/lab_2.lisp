@@ -10,12 +10,14 @@ lab_2:
 другий елемент і обертає результат у зворотному порядку.
 |#
 
-(defun remove-seconds-and-reverse (lst)
+(defun remove-seconds-and-reverse-aux (lst res)
   (cond
-    ((null lst) nil)
-    ((null (cdr lst)) (cons (car lst) nil))
-    (t (append (remove-seconds-and-reverse (cdr (cdr lst)))
-               (cons (car lst) nil)))))
+    ((null lst) res)
+    ((null (cdr lst)) (cons (car lst) res))
+    (t (remove-seconds-and-reverse-aux  (cdr (cdr lst)) (cons (car lst) res)))))
+
+(defun remove-seconds-and-reverse (lst)
+  (remove-seconds-and-reverse-aux lst nil))
 
 
 (defun check-remove (name input expected)
@@ -25,7 +27,7 @@ lab_2:
 
 (defun test-remove-seconds-and-reverse ()
   (check-remove "test 1" '(1 2 a b 3 4 d) '(d 3 a 1))
-  (check-remove "test 2" nil nil)-
+  (check-remove "test 2" nil nil)
   (check-remove "test 3" '(1) '(1))
   (check-remove "test 4" '(a b c d) '(c a))
   (check-remove "test 5" '(1 2) '(1)))

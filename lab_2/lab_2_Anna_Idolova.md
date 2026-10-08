@@ -31,12 +31,14 @@
 
 ## Лістинг функції remove-seconds-and-reverse
 ```lisp
-(defun remove-seconds-and-reverse (lst)
+(defun remove-seconds-and-reverse-aux (lst res)
   (cond
-    ((null lst) nil)
-    ((null (cdr lst)) (cons (car lst) nil))
-    (t (append (remove-seconds-and-reverse (cdr (cdr lst)))
-               (cons (car lst) nil)))))
+    ((null lst) res)
+    ((null (cdr lst)) (cons (car lst) res))
+    (t (remove-seconds-and-reverse-aux  (cdr (cdr lst)) (cons (car lst) res)))))
+
+(defun remove-seconds-and-reverse (lst)
+  (remove-seconds-and-reverse-aux lst nil))
 ```
 
 ### Тестові набори та утиліти
